@@ -1,24 +1,25 @@
 package JavaMission;
 
 /* 
-(1) È­Æó´Â °í¾×±ÇÀ» ¿ì¼±À¸·Î Áö±Þ, ³ª¸ÓÁö ±Ý¾×Àº ±× ´ÙÀ½ ´ÜÀ§ÀÇ È­Æó ¼ø¼­·Î Áö±ÞÇÑ´Ù.
-(2) È­Æó ´ÜÀ§´Â 50000¿ø, 10000¿ø 5000¿ø, 1000¿ø, 500¿ø, 100¿ø, 50¿ø, 10¿ø, 5¿ø, 1¿øÀÇ 10°¡Áö Á¾·ù°¡ ÀÖ´Ù.
-(3) ÀÔ·Âµ¥ÀÌÅÍ´Â ¼º¸í, °£½Äºñ Áö±Þ¾×ÀÌ¸ç, ¼º¸íÀÇ ÀÔ·ÂÀÌ "QUIT" ÀÌ¸é ÀÔ·ÂÀÇ ³¡À¸·Î °£ÁÖÇÑ´Ù.
-(4) Ãâ·ÂÀº ¼º¸í, °£½Äºñ Áö±Þ¾×, °³ÀÎº° °¢ È­Æó ¸Å¼ö, ¸¶Áö¸·¿¡ ÀüÃ¼ È­Æó ¸Å¼ö¸¦ Ãâ·ÂÇÑ´Ù.
+/* 
+(1) í™”íëŠ” ê³ ì•¡ê¶Œì„ ìš°ì„ ìœ¼ë¡œ ì§€ê¸‰, ë‚˜ë¨¸ì§€ ê¸ˆì•¡ì€ ê·¸ ë‹¤ìŒ ë‹¨ìœ„ì˜ í™”í ìˆœì„œë¡œ ì§€ê¸‰í•œë‹¤.
+(2) í™”í ë‹¨ìœ„ëŠ” 50000ì›, 10000ì› 5000ì›, 1000ì›, 500ì›, 100ì›, 50ì›, 10ì›, 5ì›, 1ì›ì˜ 10ê°€ì§€ ì¢…ë¥˜ê°€ ìžˆë‹¤.
+(3) ìž…ë ¥ë°ì´í„°ëŠ” ì„±ëª…, ê°„ì‹ë¹„ ì§€ê¸‰ì•¡ì´ë©°, ì„±ëª…ì˜ ìž…ë ¥ì´ "QUIT" ì´ë©´ ìž…ë ¥ì˜ ëìœ¼ë¡œ ê°„ì£¼í•œë‹¤.
+(4) ì¶œë ¥ì€ ì„±ëª…, ê°„ì‹ë¹„ ì§€ê¸‰ì•¡, ê°œì¸ë³„ ê° í™”í ë§¤ìˆ˜, ë§ˆì§€ë§‰ì— ì „ì²´ í™”í ë§¤ìˆ˜ë¥¼ ì¶œë ¥í•œë‹¤.
 
-(ÀÔ·Â)
-Á¦´Ï 623843
-Áö¼ö 728394
-¸®»ç 432942
-·ÎÁ¦ 942783
+(ìž…ë ¥)
+ì œë‹ˆ 623843
+ì§€ìˆ˜ 728394
+ë¦¬ì‚¬ 432942
+ë¡œì œ 942783
 
-(Ãâ·Â)
-¼º¸í ÃâÀåºñ ¿À¸¸¿ø ¸¸¿ø ¿ÀÃµ¿ø Ãµ¿ø ¿À¹é¿ø ¹é¿ø ¿À½Ê¿ø ½Ê¿ø ¿À¿ø ÀÏ¿ø
-Á¦´Ï 623843 12 2 0 3 1 3 0 4 0 3
-Áö¼ö 728394 14 2 1 3 0 3 1 4 0 4
-¸®»ç 432942 8 3 0 2 1 4 0 4 0 2
-·ÎÁ¦ 942783 18 4 0 2 1 2 1 3 0 3
-ÀüÃ¼ È­Æó¸Å¼ö : 52 13 1 10 3 12 2 15 0 12
+(ì¶œë ¥)
+ì„±ëª… ì¶œìž¥ë¹„ ì˜¤ë§Œì› ë§Œì› ì˜¤ì²œì› ì²œì› ì˜¤ë°±ì› ë°±ì› ì˜¤ì‹­ì› ì‹­ì› ì˜¤ì› ì¼ì›
+ì œë‹ˆ 623843 12 2 0 3 1 3 0 4 0 3
+ì§€ìˆ˜ 728394 14 2 1 3 0 3 1 4 0 4
+ë¦¬ì‚¬ 432942 8 3 0 2 1 4 0 4 0 2
+ë¡œì œ 942783 18 4 0 2 1 2 1 3 0 3
+ì „ì²´ í™”íë§¤ìˆ˜ : 52 13 1 10 3 12 2 15 0 12
  */
 
 import java.util.Scanner;
@@ -31,20 +32,20 @@ public class Num9 {
 
         String name[] = new String[4];
         int price[] = new int[4];
-        int sum[] = new int[10]; //È­Æó´ÜÀ§ ¹è¿­
+        int sum[] = new int[10]; //í™”íë‹¨ìœ„ ë°°ì—´
 
-        // ÀÌ¸§°ú ºñ¿ë ÀÔ·Â
+        // ì´ë¦„ê³¼ ë¹„ìš© ìž…ë ¥
         for (int i = 0; i < 4; i++) {
             name[i] = sc.next();
             if (name[i].equals("QUIT")) {
-            	System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+            	System.out.println("í”„ë¡œê·¸ëž¨ ì¢…ë£Œ");
             	break;
             }
             price[i] = sc.nextInt();
         }
         System.out.println();
 
-        System.out.println("¼º¸í\tÃâÀåºñ\t¿À¸¸¿ø\t¸¸¿ø\t¿ÀÃµ¿ø\tÃµ¿ø\t¿À¹é¿ø\t¹é¿ø\t¿À½Ê¿ø\t½Ê¿ø\t¿À¿ø\tÀÏ¿ø");
+        System.out.println("ì„±ëª…\tì¶œìž¥ë¹„\tì˜¤ë§Œì›\të§Œì›\tì˜¤ì²œì›\tì²œì›\tì˜¤ë°±ì›\të°±ì›\tì˜¤ì‹­ì›\tì‹­ì›\tì˜¤ì›\tì¼ì›");
         
         for (int i = 0; i < 4; i++) {
             int money = 50000;
@@ -55,12 +56,12 @@ public class Num9 {
 
             for (int j = 0; j < 10; j++) {
 
-                int a = price[i] / money; // °¹¼ö
+                int a = price[i] / money; // ê°¯ìˆ˜
 
-                int b[] = new int[10]; // ÃÑÇÕ ¹è¿­
+                int b[] = new int[10]; // ì´í•© ë°°ì—´
                 b[j] = a;
 
-                price[i] = price[i] % money; // ³²Àº ±Ý¾×
+                price[i] = price[i] % money; // ë‚¨ì€ ê¸ˆì•¡
 
                 if (j % 2 == 0) {
                     money = money / 5;
@@ -69,12 +70,12 @@ public class Num9 {
                 }
                 System.out.print(a + "\t");
 
-                sum[j] += b[j]; // ÃÑÇÕ ¹è¿­ÀÇ È­Æó´ÜÀ§ ¹è¿­
+                sum[j] += b[j]; // ì´í•© ë°°ì—´ì˜ í™”íë‹¨ìœ„ ë°°ì—´
             
             }
             System.out.println();
         }
-        System.out.print("ÀüÃ¼ È­Æó¸Å¼ö : ");
+        System.out.print("ì „ì²´ í™”íë§¤ìˆ˜ : ");
         for (int i = 0; i < sum.length; i++) {
             System.out.print("\t"+sum[i]);
         }

@@ -4,81 +4,81 @@ import java.util.Scanner;
 
 public class Bank {
 	
-	static Account[] accounts = new Account[1000];	// °í°´ Á¤º¸¹è¿­
+	static Account[] accounts = new Account[1000];	// ê³ ê° ì •ë³´ë°°ì—´
 	static int index = 0;
 	
-	// °èÁÂ µî·Ï
+	// ê³„ì¢Œ ë“±ë¡
 	public static void creat () {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("°èÁÂ¹øÈ£ >> ");
+		System.out.print("ê³„ì¢Œë²ˆí˜¸ >> ");
 		String number = sc.nextLine();
 		
-		System.out.print("¿¹±İÁÖ >> ");
+		System.out.print("ì˜ˆê¸ˆì£¼ >> ");
 		String name = sc.nextLine();
 		
-		System.out.print("ÃÖÃÊ¿¹±İ¾× >> ");
+		System.out.print("ìµœì´ˆì˜ˆê¸ˆì•¡ >> ");
 		int money = sc.nextInt();
 		
 		sc.nextLine();
 		
-		System.out.print("ºñ¹Ğ¹øÈ£ >> ");
+		System.out.print("ë¹„ë°€ë²ˆí˜¸ >> ");
 		String pw = sc.next();
 		
 		Account ac = new Account(number, name, money, pw);
 		
-		System.out.println("'"+ac.getDepositor()+"'´ÔÀÇ °èÁÂ°¡ °³¼³µÇ¾ú½À´Ï´Ù.");
+		System.out.println("'"+ac.getDepositor()+"'ë‹˜ì˜ ê³„ì¢Œê°€ ê°œì„¤ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		accounts[index] = ac;
 		index++;
 		
 	}
 
-	// ÀÔ±İ
+	// ì…ê¸ˆ
 	public static void input() {
 		Scanner sc = new Scanner(System.in);
 		
 
-		System.out.print("°èÁÂ¹øÈ£ >> ");
+		System.out.print("ê³„ì¢Œë²ˆí˜¸ >> ");
 		String number = sc.nextLine();
 		
 		Account find = findnumber(number);
 		
 		
-		System.out.print("ÀÔ±İ¾× >> ");
+		System.out.print("ì…ê¸ˆì•¡ >> ");
 
 		int money = sc.nextInt();
 
-		System.out.println("'" +find.getDepositor()+"'´Ô¿¡°Ô ÀÔ±İÇÏ½Ã´Â°Ô ¸ÂÀ¸½Ê´Ï±î?");
-		System.out.println("1. ¿¹ \n2. ¾Æ´Ï¿À");
-		System.out.print("ÀÔ·Â >> ");
+		System.out.println("'" +find.getDepositor()+"'ë‹˜ì—ê²Œ ì…ê¸ˆí•˜ì‹œëŠ”ê²Œ ë§ìœ¼ì‹­ë‹ˆê¹Œ?");
+		System.out.println("1. ì˜ˆ \n2. ì•„ë‹ˆì˜¤");
+		System.out.print("ì…ë ¥ >> ");
 		int num = sc.nextInt();
 		if ( num == 1 ) {
 			find.setDeposit(money);
-			System.out.println("'"+find.getDepositor()+"'´ÔÀÇ °èÁÂ¿¡ "+money+"¿øÀÌ ÀÔ±İµÇ¾ú½À´Ï´Ù.");
+			System.out.println("'"+find.getDepositor()+"'ë‹˜ì˜ ê³„ì¢Œì— "+money+"ì›ì´ ì…ê¸ˆë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}
 		else 
 			return;
 	}
 	
-	//Ãâ±İ
+	//ì¶œê¸ˆ
 	public static void output() {
 	
 	}
 	
-	// °èÁÂÁ¶È¸
+	// ê³„ì¢Œì¡°íšŒ
 	public static void check() {
 		for (int i = 0; i < index; i++) {
 			accounts[i].accountList();
 		}
 	}
 	
-	// °èÁÂ¸ñ·Ï
+	// ê³„ì¢Œëª©ë¡
 	public static void list() {
 		
 	}
 
-	// °èÁÂÀÌ¸§ Ã£±â
+	// ê³„ì¢Œì´ë¦„ ì°¾ê¸°
 	public static Account findnumber(String accountNumber) {
 		
 		Account a = new Account();
@@ -100,14 +100,14 @@ public class Bank {
 		
 		do {
 			System.out.println("==============================");
-			System.out.println("1. °èÁÂµî·Ï");
-			System.out.println("2. ÀÔ±İ");
-			System.out.println("3. Ãâ±İ");
-			System.out.println("4. °èÁÂÁ¶È¸");
-			System.out.println("5. °èÁÂ¸ñ·Ï");
-			System.out.println("6. Á¾·á");
+			System.out.println("1. ê³„ì¢Œë“±ë¡");
+			System.out.println("2. ì…ê¸ˆ");
+			System.out.println("3. ì¶œê¸ˆ");
+			System.out.println("4. ê³„ì¢Œì¡°íšŒ");
+			System.out.println("5. ê³„ì¢Œëª©ë¡");
+			System.out.println("6. ì¢…ë£Œ");
 			System.out.println("==============================");
-			System.out.print("ÀÔ·Â >> ");
+			System.out.print("ì…ë ¥ >> ");
 			
 			num = sc.nextInt();
 			
@@ -134,7 +134,7 @@ public class Bank {
 			}
 
 		} while (num != 6);
-		System.out.println("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.");
+		System.out.println("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 	
 	
 		sc.close();

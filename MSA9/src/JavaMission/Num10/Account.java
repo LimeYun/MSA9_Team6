@@ -13,7 +13,7 @@ public class Account {
 
 
 	public Account() {
-		this("°èÁÂ¾øÀ½", "ÀÌ¸§¾øÀ½", 0, "0000");
+		this("ê³„ì¢Œì—†ìŒ", "ì´ë¦„ì—†ìŒ", 0, "0000");
 	}
 
 	public Account(String depoNumber, String depositor, int deposit, String password) {
@@ -45,8 +45,8 @@ public class Account {
 	}
 
 	public void setDeposit(int deposit) {
-		if (deposit > 1000000000) return;	// int ÀÌ»ó ÀÔ±İ ºÒ°¡
-		this.deposit += deposit;			// ÀÜ°í ÇÕ»ê
+		if (deposit > 1000000000) return;	// int ì´ìƒ ì…ê¸ˆ ë¶ˆê°€
+		this.deposit += deposit;			// ì”ê³  í•©ì‚°
 	}
 
 	public String getPassword() {
@@ -58,9 +58,9 @@ public class Account {
 	}
 
 	
-	// °èÁÂÁ¶È¸ µ¹¸®±â
+	// ê³„ì¢Œì¡°íšŒ ëŒë¦¬ê¸°
 	public void accountList() {
-		System.out.printf("°èÁÂ¹øÈ£ : %s, ÀÌ¸§ : %s, ºñ¹Ğ¹øÈ£ : %s, ÀÜ°í : %,d¿ø%n"
+		System.out.printf("ê³„ì¢Œë²ˆí˜¸ : %s, ì´ë¦„ : %s, ë¹„ë°€ë²ˆí˜¸ : %s, ì”ê³  : %,dì›%n"
 				, depoNumber, depositor, password, deposit);
 	}
 	

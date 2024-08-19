@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 public class Num1 {
 	/*
-	 ÇĞ»ıÀÇ ¿µ¾î, ¼öÇĞ, ÀÚ¹Ù ¼ºÀûÀ» °¢°¢ Á¤¼öÇü º¯¼ö eng, math, java ·Î ¼±¾ğÇÏ°í, ¼ø¼­´ë·Î Á¡¼ö¸¦ ÀÔ·Â ¹Ş¾Æ ¼ºÀûÀÇ ÃÑ ÇÕ
-	°è¿Í Æò±ÕÀ» °è»êÇÏ¿© Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
+	 í•™ìƒì˜ ì˜ì–´, ìˆ˜í•™, ìë°” ì„±ì ì„ ê°ê° ì •ìˆ˜í˜• ë³€ìˆ˜ eng, math, java ë¡œ ì„ ì–¸í•˜ê³ , ìˆœì„œëŒ€ë¡œ ì ìˆ˜ë¥¼ ì…ë ¥ ë°›ì•„ ì„±ì ì˜ ì´ í•©
+	ê³„ì™€ í‰ê· ì„ ê³„ì‚°í•˜ì—¬ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.
 	
-	ÀÔ·Â
+	ì…ë ¥
 	80 90 100 
 	
-	Ãâ·Â
-	¿µ¾î Á¡¼ö : 80
-	¼öÇĞ Á¡¼ö : 90
-	ÀÚ¹Ù Á¡¼ö : 100
-	ÃÑÁ¡ : 270
-	Æò±Õ : 90.0
+	ì¶œë ¥
+	ì˜ì–´ ì ìˆ˜ : 80
+	ìˆ˜í•™ ì ìˆ˜ : 90
+	ìë°” ì ìˆ˜ : 100
+	ì´ì  : 270
+	í‰ê·  : 90.0
 	 */
 
 	public static void main(String[] args) {
@@ -24,15 +24,15 @@ public class Num1 {
 		int math = sc.nextInt();
 		int java = sc.nextInt();
 		
-		System.out.println("¿µ¾î Á¡¼ö : "+eng);
-		System.out.println("¼öÇĞ Á¡¼ö : "+math);
-		System.out.println("ÀÚ¹Ù Á¡¼ö : "+java);
+		System.out.println("ì˜ì–´ ì ìˆ˜ : "+eng);
+		System.out.println("ìˆ˜í•™ ì ìˆ˜ : "+math);
+		System.out.println("ìë°” ì ìˆ˜ : "+java);
 		
 		int sum = eng+math+java;
 		double avg = (double)sum/3;
 		
-		System.out.println("ÃÑÁ¡ : "+sum);
-		System.out.println("Æò±Õ : "+avg);
+		System.out.println("ì´ì  : "+sum);
+		System.out.println("í‰ê·  : "+avg);
 		
 		sc.close();
 		
