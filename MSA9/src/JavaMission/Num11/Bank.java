@@ -126,7 +126,7 @@ public class Bank {
 
 	}
 
-	// 계좌이름 찾기
+	// 계좌번호로 이름 찾기
 	public static Account findnumber(String accountNumber) {
 		
 		Account a = new Account();
@@ -140,7 +140,7 @@ public class Bank {
 		return a;
 	}
 	
-	// 비밀번호로 계좌주인 찾기
+	// 비밀번호로 이름 찾기
 	public static Account findname(String pw) {
 		
 		Account b = new Account();
