@@ -73,7 +73,7 @@ public class Num5 {
 		int count = 0;
 
 		do {
-			System.out.println("***** 치킨 메뉴?�� *****");
+			System.out.println("***** 치킨 메뉴판 *****");
 			System.out.println("1. 황금올리브 반반한 치킨");
 			System.out.println("2. 뿌잉클 치킨");
 			System.out.println("3. 처갓집에서 호식이가 만든 치킨");

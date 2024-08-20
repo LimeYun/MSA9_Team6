@@ -1,41 +1,41 @@
 package JavaMission;
 
 /*
-  	Á¤¼ö 1ºÎÅÍ 100±îÁö ÀÇ ¼ö¸¦ Ãâ·ÂÇÏ¸é¼­, ÇØ´ç ¼ö °¡ 3 ¶Ç´Â 6 ¶Ç´Â 9¿¡ ÇØ´çÇÏ´Â °æ¿ì
-	 ÇØ´ç Á¤¼ö ´ë½Å¿¡ 3, 6, 9°¡ Æ÷ÇÔµÇ´Â °³¼ö¸¸Å­ ¡°*¡± ¸¦ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
- */
+	ì •ìˆ˜ 1ë¶€í„° 100ê¹Œì§€ ì˜ ìˆ˜ë¥¼ ì¶œë ¥í•˜ë©´ì„œ, í•´ë‹¹ ìˆ˜ ê°€ 3 ë˜ëŠ” 6 ë˜ëŠ” 9ì— í•´ë‹¹í•˜ëŠ” ê²½ìš°
+ í•´ë‹¹ ì •ìˆ˜ ëŒ€ì‹ ì— 3, 6, 9ê°€ í¬í•¨ë˜ëŠ” ê°œìˆ˜ë§Œí¼ â€œ*â€ ë¥¼ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.
+*/
 
 public class Num3 {
+
+public static void main(String[] args) {
 	
-	public static void main(String[] args) {
+	for (int i = 1; i <= 100; i++) {
+		int result = 0; //ì´ˆê¸°í™”
 		
-		for (int i = 1; i <= 100; i++) {
-			int result = 0; //ÃÊ±âÈ­
-			
-			int a = i/10;	//10ÀÇÀÚ¸®
-			int b = i%10;	//1ÀÇÀÚ¸®
-			
-			if (a == 3 || a == 6 || a == 9) {
-				result++;
-			}
-			if (b == 3 || b == 6 || b == 9) {
-				result++;
-			}
-			
-			if (result == 1) { 
-				
-				System.out.println("*");
-				
-			} else if (result == 2) {
-				
-				System.out.println("**");
-				
-			} else {
-				
-				System.out.println(i);
-			}
+		int a = i/10;	//10ì˜ìë¦¬
+		int b = i%10;	//1ì˜ìë¦¬
+		
+		if (a == 3 || a == 6 || a == 9) {
+			result++;
+		}
+		if (b == 3 || b == 6 || b == 9) {
+			result++;
 		}
 		
+		if (result == 1) { 
+			
+			System.out.println("*");
+			
+		} else if (result == 2) {
+			
+			System.out.println("**");
+			
+		} else {
+			
+			System.out.println(i);
+		}
 	}
+	
+}
 
 }

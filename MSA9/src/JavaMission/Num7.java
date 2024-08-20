@@ -3,61 +3,59 @@ package JavaMission;
 import java.util.Scanner;
 
 public class Num7 {
-	
 
-	//ÇĞ»ı 5¸íÀÇ JAVA ÇÁ·Î±×·¡¹Ö ¼ºÀûÀ» ÀÔ·Â ¹Ş¾Æ, 1Â÷¿ø ¹è¿­¿¡ ÀúÀåÇÏ°í ¼ºÀûÀ» ±âÁØÀ¸·Î ¿À¸§Â÷¼ø,
-	//³»¸²Â÷¼øÀ¸·Î °¢°¢ Ãâ·ÂÇÏ½Ã¿À.
-	//(´Ü, Á¤·Ä ¹æ½ÄÀº ¼±ÅÃÁ¤·Ä, ¹öºíÁ¤·Ä, »ğÀÔÁ¤·Ä Áß ÇÏ³ªÀÇ Á¤·Ä ¹æ½ÄÀ» ÀÌ¿ëÇÏ½Ã¿À.
-	//¼ºÀûÀº Á¤¼ö 0ÀÌ»ó 100ÀÌÇÏ·Î ÁÖ¾îÁı´Ï´Ù.)
-	//35 65 75 90 100
-	//100 90 75 65 35
+	// í•™ìƒ 5ëª…ì˜ JAVA í”„ë¡œê·¸ë˜ë° ì„±ì ì„ ì…ë ¥ ë°›ì•„, 1ì°¨ì› ë°°ì—´ì— ì €ì¥í•˜ê³  ì„±ì ì„ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ,
+	// ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ê°ê° ì¶œë ¥í•˜ì‹œì˜¤.
+	// (ë‹¨, ì •ë ¬ ë°©ì‹ì€ ì„ íƒì •ë ¬, ë²„ë¸”ì •ë ¬, ì‚½ì…ì •ë ¬ ì¤‘ í•˜ë‚˜ì˜ ì •ë ¬ ë°©ì‹ì„ ì´ìš©í•˜ì‹œì˜¤.
+	// ì„±ì ì€ ì •ìˆ˜ 0ì´ìƒ 100ì´í•˜ë¡œ ì£¼ì–´ì§‘ë‹ˆë‹¤.)
+	// 35 65 75 90 100
+	// 100 90 75 65 35
 
+	public static void main(String[] args) {
 
-	    public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int arr[] = new int[5];
 
-	        Scanner sc = new Scanner(System.in);
-	        int arr[] = new int[5];
+		// ì„±ì  5ê°œ ì…ë ¥
 
-	        // ¼ºÀû 5°³ ÀÔ·Â
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = sc.nextInt();
 
-	        for (int i = 0; i < arr.length; i++) {
-	            arr[i] = sc.nextInt();
-
-	        }
-
-	        // ¼ºÀûÀ» ±âÁØÀ¸·Î ¿À¸§Â÷¼ø ÇÏ±â
-	        for (int i = 0; i < arr.length; i++) {
-	            for (int j = 0; j < arr.length; j++) {
-	                if (arr[i] > arr[j]) {
-	                    int temp = arr[j];
-	                    arr[j] = arr[i];
-	                    arr[i] = temp;
-	                }
-	            }
-
-	        }
-	        // ¼ºÀû ³»¸²Â÷¼ø!
-	        for (int i = 0; i < arr.length; i++) {
-	            for (int j = 0; j < arr.length; j++) {
-	                if (arr[j] > arr[i]) {
-	                    int temp = arr[i];
-	                    arr[i] = arr[j];
-	                    arr[j] = temp;
-					}
-				}
-
-			}
-
-			for (int i = 0; i < arr.length; i++) {
-				System.out.print(arr[i] + " ");
-			}
-
-			System.out.println();
-
-			for (int i = arr.length - 1; i >= 0; i--) {
-				System.out.print(arr[i] + " ");
-
-			}
-			sc.close();
 		}
+
+		// ì„±ì ì„ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ í•˜ê¸°
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr.length; j++) {
+				if (arr[i] > arr[j]) {
+					int temp = arr[j];
+					arr[j] = arr[i];
+					arr[i] = temp;
+				}
+			}
+
+		}
+		// ì„±ì  ë‚´ë¦¼ì°¨ìˆœ!
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr.length; j++) {
+				if (arr[j] > arr[i]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+
+		}
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+
+		System.out.println();
+
+		for (int i = arr.length - 1; i >= 0; i--) {
+			System.out.print(arr[i] + " ");
+
+		}
+		sc.close();
 	}
+}

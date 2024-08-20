@@ -1,10 +1,10 @@
 package JavaMission;
 /*
- * ÇÏ³ªÀÇ Á¤¼öNÀ» ÀÔ·Â¹Ş¾Æ ´ÙÀ½°ú °°ÀÌ ÀÛ¼ºÇÏ½Ã¿À.
+ * í•˜ë‚˜ì˜ ì •ìˆ˜Nì„ ì…ë ¥ë°›ì•„ ë‹¤ìŒê³¼ ê°™ì´ ì‘ì„±í•˜ì‹œì˜¤.
 
-Áö±×Àç±×·Î Ãâ·ÂÇÏ½Ã¿À.
+ì§€ê·¸ì¬ê·¸ë¡œ ì¶œë ¥í•˜ì‹œì˜¤.
 
-NÀÌ 5¶ó¸é ´ÙÀ½°ú °°ÀÌ Ãâ·ÂÇÑ´Ù.
+Nì´ 5ë¼ë©´ ë‹¤ìŒê³¼ ê°™ì´ ì¶œë ¥í•œë‹¤.
 
 1 2 3 4 5
 
@@ -24,24 +24,24 @@ public class Num8 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		int arr[][] = new int[n][n];			// 2Â÷¿ø ¹è¿­
+		int arr[][] = new int[n][n];			// 2ì°¨ì› ë°°ì—´
 		int a = 1;
 
 		for (int i = 0; i < n; i++) {
 			if (i % 2 == 0) {
-				for (int j = 0; j < n; j++) {		//arr[0],arr[2]...[n]Çà (1,3..Â°ÁÙ Á¤¹æÇâÀ¸·Î Á¤·Ä)
+				for (int j = 0; j < n; j++) {		//arr[0],arr[2]...[n]í–‰ (1,3..ì§¸ì¤„ ì •ë°©í–¥ìœ¼ë¡œ ì •ë ¬)
 
 					arr[i][j] = a++;
 				}
 			} else {
-				for (int j = n - 1; j >= 0; j--) {	//2,4... Â° ÁÙ ¿ª¹æÇâÀ¸·Î Á¤·Ä
+				for (int j = n - 1; j >= 0; j--) {	//2,4... ì§¸ ì¤„ ì—­ë°©í–¥ìœ¼ë¡œ ì •ë ¬
 					arr[i][j] = a++;
 				}
 			}
 		}
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr.length; j++) {
-				System.out.print(arr[i][j] + " ");		// 2Â÷¿ø¹è¿­ ÁßÃ¸¹İº¹¹®À¸·Î Ãâ·Â
+				System.out.print(arr[i][j] + " ");		// 2ì°¨ì›ë°°ì—´ ì¤‘ì²©ë°˜ë³µë¬¸ìœ¼ë¡œ ì¶œë ¥
 			}
 			System.out.println();
 		}
