@@ -13,12 +13,9 @@ public class Account {
 	
 
 	public String getSuperPw() {
-		return superPw;
+		return "super";
 	}
 	
-	public void setSuperPw(String superPw) {
-		this.superPw = superPw;
-	}
 
 
 
