@@ -2,20 +2,6 @@ package JavaMission;
 
 public class Num13 {
 	
-	// 싱글톤
-	private static Num13 singleton = new Num13();
-	
-	
-	private Num13() {
-	}
-	
-	public static Num13 getSingleton() {
-		if ( singleton == null )
-			singleton = new Num13();
-		
-		return singleton;
-	}
-	
 	/*
 	 * - ArrayList 를 이용하시오 
 	 * - 싱글톤 패턴을 적용하시오. 
