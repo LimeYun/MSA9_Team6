@@ -1,5 +1,12 @@
 package JavaMission;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
 public class Num13 {
 	
 	/*
@@ -58,9 +65,147 @@ public class Num13 {
 	 */
 	
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		
+		ArrayList<Integer> lotto = new ArrayList(); // 발행번호
+		System.out.print("몇 게임? : ");
+		int n = sc.nextInt();
+		int result[][] = new int[n][6];
+		int auto[] = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			System.out.print("[" + (i+1) + " 게임] 1.(자동) / 2.(수동) : ");
+			auto[i] = sc.nextInt();
+			
+			for (int j = 0; j < 6; j++) {
+				
+				if (auto[i] == 1) {
+					lotto.add(j, (int) (Math.random() * 45 + 1));
+				} else if (auto[i] == 2) {
+					System.out.print(j+1 + " : ");
+					lotto.add(j, sc.nextInt());
+				}
+				for (int k = j - 1; k >= 0; k--) { // 중복 제거
+					if (lotto.get(j) == lotto.get(k)) {
+						lotto.remove(lotto.get(j));
+						j--;
+					}
+				}
+			}
+			
+			for (int j = 0; j < 6; j++) {
+				System.out.print(lotto.get(j) + " ");
+				result[i][j] = lotto.get(j);
+			}
+			System.out.println();
+		}
 		
+		Date now = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat();
 		
+		sdf = new SimpleDateFormat("yyyy/M/dd (E) HH:mm:ss");
+		
+		System.out.println("############ 인생역전 Lottoria ############");
+		System.out.println("발행일 : "+sdf.format(now));
+		
+		// 추첨일
+		Calendar lottoCal = Calendar.getInstance();
+		
+		lottoCal.set(Calendar.HOUR_OF_DAY, 21);
+		lottoCal.set(Calendar.MINUTE, 0);
+		lottoCal.set(Calendar.SECOND, 0);
+		
+		// 토요일까지 하루씩 늘림
+		for (int i = lottoCal.get(Calendar.DAY_OF_WEEK); i < Calendar.SATURDAY; i++) {
+			lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
+		}
+		
+		System.out.println("추첨일 : "+sdf.format(lottoCal.getTime()));
+		
+		// 지급 기한
+		SimpleDateFormat dday = new SimpleDateFormat("yyyy/M/dd (E)");
+		lottoCal.add(Calendar.YEAR, 1);
+		lottoCal.add(Calendar.DAY_OF_WEEK, 1);
+		System.out.println("지급기한 : " + dday.format(lottoCal.getTime()));
+		System.out.println("-----------------------------------------");
+		
+		DecimalFormat df = new DecimalFormat("00");
+		int a = 65;
+		for (int i = 0; i < n; i++) {
+			if (auto[i] == 1)
+			System.out.print((char)a+" 자 동 ");
+			else if (auto[i] == 2)
+				System.out.print((char)a+" 수 동 ");
+			for (int j = 0; j < 6; j++) {
+				System.out.print(df.format(result[i][j]) + " ");
+			}
+			System.out.println();
+			a++;
+		}
+		
+		System.out.println("-----------------------------------------");
+		System.out.println("금액 				₩5,000");
+		System.out.println("#########################################");
+		int 당첨번호[] = new int[6];
+		for (int i = 0; i < 6; i++) {
+			당첨번호[i] = (int)(Math.random()*45+1);
+		}
+		int 보너스번호 = (int)(Math.random()*45+1);
+		System.out.print("당첨번호 : ");
+		for (int i : 당첨번호) {
+			System.out.print(df.format(i)+" ");
+		}
+		System.out.println();
+		System.out.println("보너스 번호 : " + df.format(보너스번호));
+		
+		System.out.println("\n################## 당첨 결과 ###################### ");
+		int a1 = 65;
+		
+		// 당첨결과 검사
+		int count[] = new int[n];
+		int 이등 = 0;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < 6; j++) {
+				if ( 당첨번호[i] == result[i][j] ) {
+					count[i]++;
+				}
+				for (int j2 = 0; j2 < 6; j2++) {
+					if ( result[i][j2] == 보너스번호 && count[i] == 5 ) {
+						이등++;
+					}
+				}
+			}
+		}
+		
+		// 당첨결과 출력
+		for (int i = 0; i < n; i++) {
+			if (auto[i] == 1)
+			System.out.print((char)a1+" 자 동 ");
+			else if (auto[i] == 2)
+				System.out.print((char)a1+" 수 동 ");
+			for (int j = 0; j < 6; j++) {
+				System.out.print(df.format(result[i][j]) + " ");
+			}
+			
+			if ( count[i] == 6 )
+				System.out.print("(1등)");
+			else if ( 이등 == 1 )
+				System.out.print("(2등)");
+			else if ( count[i] == 5 )
+				System.out.print("(3등)");
+			else if ( count[i] == 4 )
+				System.out.print("(4등)");
+			else if ( count[i] == 3 )
+				System.out.print("(5등)");
+			else
+				System.out.print("(낙첨)");
+			
+			System.out.println();
+			a1++;
+		}
+		System.out.println("#################################################");
 	}
 
 }
+
+
