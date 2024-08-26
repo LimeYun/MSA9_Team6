@@ -47,22 +47,16 @@ public class Num5 {
 
 		switch (a) {
 
-		case 1:
-			menuName = "황금올리브 반반한 치킨";
+		case 1: menuName = "황금올리브 반반한 치킨";
 			break;
-		case 2:
-			menuName = "뿌잉클 치킨";
+		case 2: menuName = "뿌잉클 치킨";
 			break;
-		case 3:
-			menuName = "처갓집에서 호식이가 만든 치킨";
+		case 3: menuName = "처갓집에서 호식이가 만든 치킨";
 			break;
-
 		default:
 			break;
 		}
-
 		return menuName;
-
 	}
 	
 	public static void main(String[] args) {

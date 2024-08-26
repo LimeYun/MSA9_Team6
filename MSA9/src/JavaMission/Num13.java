@@ -115,12 +115,21 @@ public class Num13 {
 		lottoCal.set(Calendar.MINUTE, 0);
 		lottoCal.set(Calendar.SECOND, 0);
 		
+		// 토요일 21시 이전이면 당일 21시 출력
+		if (lottoCal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && lottoCal.get(Calendar.HOUR_OF_DAY) < 21) {
+			System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
+		} 
+		// 토요일 21시 이후면 하루 넘김
+		else if (lottoCal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && lottoCal.get(Calendar.HOUR_OF_DAY) > 21) {
+			lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
+		}
 		// 토요일까지 하루씩 늘림
 		for (int i = lottoCal.get(Calendar.DAY_OF_WEEK); i < Calendar.SATURDAY; i++) {
 			lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
 		}
+		System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
 		
-		System.out.println("추첨일 : "+sdf.format(lottoCal.getTime()));
+		
 		
 		// 지급 기한
 		SimpleDateFormat dday = new SimpleDateFormat("yyyy/M/dd (E)");
@@ -130,49 +139,65 @@ public class Num13 {
 		System.out.println("-----------------------------------------");
 		
 		DecimalFormat df = new DecimalFormat("00");
-		int a = 65;
+
 		for (int i = 0; i < n; i++) {
 			if (auto[i] == 1)
-			System.out.print((char)a+" 자 동 ");
+			System.out.print((char)(i+65)+" 자 동 ");
 			else if (auto[i] == 2)
-				System.out.print((char)a+" 수 동 ");
+				System.out.print((char)(i+65)+" 수 동 ");
 			for (int j = 0; j < 6; j++) {
 				System.out.print(df.format(result[i][j]) + " ");
 			}
 			System.out.println();
-			a++;
+			
 		}
 		
 		System.out.println("-----------------------------------------");
-		System.out.println("금액 				₩5,000");
+		DecimalFormat won = new DecimalFormat("#,###");
+		System.out.println("금액 				₩"+won.format(1000*n));
 		System.out.println("#########################################");
-		int 당첨번호[] = new int[6];
-		for (int i = 0; i < 6; i++) {
-			당첨번호[i] = (int)(Math.random()*45+1);
+		
+		ArrayList<Integer> 당첨번호 = new ArrayList();
+		for (int i = 0; i < 7; i++) {
+			당첨번호.add(i, (int)(Math.random()*45+1));
+			for (int j = i-1; j >= 0; j--) {
+				if ( 당첨번호.get(i) == 당첨번호.get(j) ) {
+					당첨번호.remove(i);
+					i--;
+				}
+			}
 		}
-		int 보너스번호 = (int)(Math.random()*45+1);
 		System.out.print("당첨번호 : ");
-		for (int i : 당첨번호) {
-			System.out.print(df.format(i)+" ");
+		for (int i = 0; i < 6; i++) {
+			System.out.print(df.format(당첨번호.get(i)) + " ");
 		}
+//		당첨번호.add(0, 1);
+//		당첨번호.add(1, 2);
+//		당첨번호.add(2, 3);
+//		당첨번호.add(3, 4);
+//		당첨번호.add(4, 5);
+//		당첨번호.add(5, 6);
+//		당첨번호.add(6, 7); 테스트
+		int 보너스번호 = 당첨번호.get(6);
 		System.out.println();
 		System.out.println("보너스 번호 : " + df.format(보너스번호));
 		
 		System.out.println("\n################## 당첨 결과 ###################### ");
-		int a1 = 65;
 		
 		// 당첨결과 검사
 		int count[] = new int[n];
-		int 이등 = 0;
+		int 이등[] = new int[n];
 		for (int i = 0; i < n; i++) {
+			이등[i] = 0;
 			for (int j = 0; j < 6; j++) {
-				if ( 당첨번호[i] == result[i][j] ) {
-					count[i]++;
-				}
+				if ( j >= 6 )
+					j = 0;
 				for (int j2 = 0; j2 < 6; j2++) {
-					if ( result[i][j2] == 보너스번호 && count[i] == 5 ) {
-						이등++;
+					if (당첨번호.get(j) == result[i][j2]) {
+						count[i]++;
 					}
+					if (result[i][j2] == 보너스번호)
+						이등[i] = 1;
 				}
 			}
 		}
@@ -180,18 +205,18 @@ public class Num13 {
 		// 당첨결과 출력
 		for (int i = 0; i < n; i++) {
 			if (auto[i] == 1)
-			System.out.print((char)a1+" 자 동 ");
+			System.out.print((char)(i+65)+" 자 동 ");
 			else if (auto[i] == 2)
-				System.out.print((char)a1+" 수 동 ");
+				System.out.print((char)(i+65)+" 수 동 ");
 			for (int j = 0; j < 6; j++) {
 				System.out.print(df.format(result[i][j]) + " ");
 			}
 			
 			if ( count[i] == 6 )
 				System.out.print("(1등)");
-			else if ( 이등 == 1 )
+			else if ( count[i] == 5 && 이등[i] == 1)
 				System.out.print("(2등)");
-			else if ( count[i] == 5 )
+			else if ( count[i] == 5 && 이등[i] == 0)
 				System.out.print("(3등)");
 			else if ( count[i] == 4 )
 				System.out.print("(4등)");
@@ -201,7 +226,6 @@ public class Num13 {
 				System.out.print("(낙첨)");
 			
 			System.out.println();
-			a1++;
 		}
 		System.out.println("#################################################");
 	}
