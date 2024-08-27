@@ -45,7 +45,7 @@ public class Num5 {
 	static String menuName = "";
 	static int count = 0;
 	
-	public static String menu() {
+	public static void menu() {
 		System.out.println("***** 치킨 메뉴판 *****");
 		System.out.println("1. 황금올리브 반반한 치킨");
 		System.out.println("2. 뿌잉클 치킨");
@@ -71,10 +71,8 @@ public class Num5 {
 		if (menuNo > 0 && menuNo <= 3) {
 			System.out.println("\n'" + menuName + "'" + "(이/가) 주문되었습니다.\n");
 			count++;
-			return menuName;
 		} else if ( menuNo == 0 ) {
 		}
-		return null;
 	}
 	
 		
