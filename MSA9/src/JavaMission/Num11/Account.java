@@ -8,17 +8,14 @@ public class Account {
 	private int deposit;
 	private String password;
 	
-	private String superPw = "super";	// 관리자 비밀번호
+	private String superPw;	// 관리자 비밀번호
 	
 	
 
 	public String getSuperPw() {
-		return superPw;
+		return "super";
 	}
 	
-	public void setSuperPw(String superPw) {
-		this.superPw = superPw;
-	}
 
 
 

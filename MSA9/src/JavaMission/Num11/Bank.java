@@ -95,7 +95,7 @@ public class Bank {
 		Account find = findname(pw);
 		
 		if ( find == null ) {
-			System.out.println("비밀번호가 다릅니다.");
+			System.out.println("없는 계좌번호이거나 비밀번호가 다릅니다.");
 			return;
 		}
 		
@@ -108,9 +108,9 @@ public class Bank {
 		Scanner sc = new Scanner(System.in);
 		
 		Account superPw = new Account();
-		superPw.setPassword("super");	// 관리자 비밀번호
 		
 		System.out.print("관리자 비밀번호 >> ");
+		
 		String pw = sc.nextLine();
 		
 		if (superPw.getSuperPw().equals(pw)) {
@@ -126,7 +126,7 @@ public class Bank {
 
 	}
 
-	// 계좌이름 찾기
+	// 계좌번호로 이름 찾기
 	public static Account findnumber(String accountNumber) {
 		
 		Account a = new Account();
@@ -140,7 +140,7 @@ public class Bank {
 		return a;
 	}
 	
-	// 비밀번호로 계좌주인 찾기
+	// 비밀번호로 이름 찾기
 	public static Account findname(String pw) {
 		
 		Account b = new Account();
