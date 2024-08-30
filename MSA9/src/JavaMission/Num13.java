@@ -76,20 +76,18 @@ public class Num13 {
 		for (int i = 0; i < n; i++) {
 			System.out.print("[" + (i+1) + " 게임] 1.(자동) / 2.(수동) : ");
 			auto[i] = sc.nextInt();
+			sc.nextLine();
 			
 			for (int j = 0; j < 6; j++) {
-				
 				if (auto[i] == 1) {
-					lotto.add(j, (int) (Math.random() * 45 + 1));
-				} else if (auto[i] == 2) {
+					int rand = (int) (Math.random() * 45 + 1);
+					if (lotto.contains(rand)) 		// 중복제거
+						j--;
+					else lotto.add(j, rand);
+				}  
+				if (auto[i] == 2) {
 					System.out.print(j+1 + " : ");
 					lotto.add(j, sc.nextInt());
-				}
-				for (int k = j - 1; k >= 0; k--) { // 중복 제거
-					if (lotto.get(j) == lotto.get(k)) {
-						lotto.remove(lotto.get(j));
-						j--;
-					}
 				}
 			}
 			
@@ -97,6 +95,7 @@ public class Num13 {
 				System.out.print(lotto.get(j) + " ");
 				result[i][j] = lotto.get(j);
 			}
+			lotto.clear();
 			System.out.println();
 		}
 		
@@ -111,24 +110,36 @@ public class Num13 {
 		// 추첨일
 		Calendar lottoCal = Calendar.getInstance();
 		
-		lottoCal.set(Calendar.HOUR_OF_DAY, 21);
-		lottoCal.set(Calendar.MINUTE, 0);
-		lottoCal.set(Calendar.SECOND, 0);
 		
 		// 토요일 21시 이전이면 당일 21시 출력
 		if (lottoCal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && lottoCal.get(Calendar.HOUR_OF_DAY) < 21) {
+			lottoCal.set(Calendar.HOUR_OF_DAY, 21);
+			lottoCal.set(Calendar.MINUTE, 0);
+			lottoCal.set(Calendar.SECOND, 0);
 			System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
 		} 
 		// 토요일 21시 이후면 하루 넘김
 		else if (lottoCal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && lottoCal.get(Calendar.HOUR_OF_DAY) > 21) {
 			lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
+			
+			for (int i = lottoCal.get(Calendar.DAY_OF_WEEK); i < Calendar.SATURDAY; i++) {
+				lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
+			}
+			lottoCal.set(Calendar.HOUR_OF_DAY, 21);
+			lottoCal.set(Calendar.MINUTE, 0);
+			lottoCal.set(Calendar.SECOND, 0);
+			System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
 		}
 		// 토요일까지 하루씩 늘림
-		for (int i = lottoCal.get(Calendar.DAY_OF_WEEK); i < Calendar.SATURDAY; i++) {
-			lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
+		else {
+			for (int i = lottoCal.get(Calendar.DAY_OF_WEEK); i < Calendar.SATURDAY; i++) {
+				lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
+			}
+			lottoCal.set(Calendar.HOUR_OF_DAY, 21);
+			lottoCal.set(Calendar.MINUTE, 0);
+			lottoCal.set(Calendar.SECOND, 0);
+			System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
 		}
-		System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
-		
 		
 		
 		// 지급 기한
@@ -159,14 +170,14 @@ public class Num13 {
 		
 		ArrayList<Integer> 당첨번호 = new ArrayList();
 		for (int i = 0; i < 7; i++) {
-			당첨번호.add(i, (int)(Math.random()*45+1));
-			for (int j = i-1; j >= 0; j--) {
-				if ( 당첨번호.get(i) == 당첨번호.get(j) ) {
-					당첨번호.remove(i);
-					i--;
-				}
-			}
+			int rand = (int) (Math.random()*45+1);
+			if (당첨번호.contains(rand))
+				i--;
+			else
+			당첨번호.add(i, rand);
+			
 		}
+		
 		System.out.print("당첨번호 : ");
 		for (int i = 0; i < 6; i++) {
 			System.out.print(df.format(당첨번호.get(i)) + " ");
