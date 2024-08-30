@@ -107,39 +107,21 @@ public class Num13 {
 		System.out.println("############ 인생역전 Lottoria ############");
 		System.out.println("발행일 : "+sdf.format(now));
 		
-		// 추첨일
-		Calendar lottoCal = Calendar.getInstance();
-		
-		
-		// 토요일 21시 이전이면 당일 21시 출력
-		if (lottoCal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && lottoCal.get(Calendar.HOUR_OF_DAY) < 21) {
-			lottoCal.set(Calendar.HOUR_OF_DAY, 21);
-			lottoCal.set(Calendar.MINUTE, 0);
-			lottoCal.set(Calendar.SECOND, 0);
-			System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
-		} 
-		// 토요일 21시 이후면 하루 넘김
-		else if (lottoCal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && lottoCal.get(Calendar.HOUR_OF_DAY) > 21) {
-			lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
-			
-			for (int i = lottoCal.get(Calendar.DAY_OF_WEEK); i < Calendar.SATURDAY; i++) {
-				lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
-			}
-			lottoCal.set(Calendar.HOUR_OF_DAY, 21);
-			lottoCal.set(Calendar.MINUTE, 0);
-			lottoCal.set(Calendar.SECOND, 0);
-			System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
-		}
-		// 토요일까지 하루씩 늘림
-		else {
-			for (int i = lottoCal.get(Calendar.DAY_OF_WEEK); i < Calendar.SATURDAY; i++) {
-				lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
-			}
-			lottoCal.set(Calendar.HOUR_OF_DAY, 21);
-			lottoCal.set(Calendar.MINUTE, 0);
-			lottoCal.set(Calendar.SECOND, 0);
-			System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
-		}
+		 // 추첨일
+        Calendar lottoCal = Calendar.getInstance();
+
+        // 토요일 21시 이후면 하루 넘김
+        if (lottoCal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY && lottoCal.get(Calendar.HOUR_OF_DAY) > 21) {
+            lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
+        }
+        // 토요일까지 하루씩 늘림
+            for (int i = lottoCal.get(Calendar.DAY_OF_WEEK); i < Calendar.SATURDAY; i++) {
+                lottoCal.add(lottoCal.DAY_OF_WEEK, 1);
+            }
+            lottoCal.set(Calendar.HOUR_OF_DAY, 21);
+            lottoCal.set(Calendar.MINUTE, 0);
+            lottoCal.set(Calendar.SECOND, 0);
+            System.out.println("추첨일 : " + sdf.format(lottoCal.getTime()));
 		
 		
 		// 지급 기한
